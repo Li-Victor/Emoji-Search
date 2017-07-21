@@ -2,11 +2,21 @@ import React, { Component } from 'react';
 import Header from './Header';
 import SearchInput from './SearchInput';
 import EmojiResults from './EmojiResults';
+import filterEmoji from './filterEmoji';
 
 class App extends Component {
 
+  constructor(props) {
+      super(props);
+      this.state = {
+          filteredEmoji: filterEmoji('', 20)
+      };
+  }
+
   handleSearchChange = (event) => {
-      console.log('search input changed to: ', event.target.value);
+      this.setState({
+          filteredEmoji: filterEmoji(event.target.value, 20)
+      });
   }
   render() {
     return (
@@ -14,11 +24,7 @@ class App extends Component {
         <Header />
         <SearchInput textChange={this.handleSearchChange}/>
         <EmojiResults
-            emojiData={[
-                { title: "Grinning", symbol: "😀" },
-                { title: "heart_eyes", symbol: "😍" },
-                { title: "poop", symbol: "💩" }
-            ]}/>
+            emojiData={this.state.filteredEmoji}/>
       </div>
     );
   }

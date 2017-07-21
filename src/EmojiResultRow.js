@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './EmojiResultRow.css';
 
 class EmojiResultRow extends React.Component {
     render() {
@@ -7,9 +8,9 @@ class EmojiResultRow extends React.Component {
         const src = `//cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`
 
         return (
-            <div>
+            <div className="component-emoji-result-row">
                 <img alt={this.props.title} src={src} />
-                <span>{this.props.title}</span>
+                <span className="title">{this.props.title}</span>
             </div>
         );
     }

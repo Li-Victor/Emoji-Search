@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './SearchInput.css';
 
 class SearchInput extends React.Component {
 
@@ -8,8 +9,10 @@ class SearchInput extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input onChange={this.handleChange}/>
+            <div className="component-search-input">
+                <div>
+                    <input onChange={this.handleChange}/>
+                </div>
             </div>
         )
     }
